@@ -1,0 +1,29 @@
+/* Footer transparente, sin sombra ni borde */
+.custom-footer {
+  --background: transparent;
+  --box-shadow: none;
+  --border-style: none;
+}
+
+
+/* Row redondeado */
+.rounded-row {
+  border-radius: 50px;
+  background-color: white;
+  padding: 10px; /* espacio interno del row */
+  justify-content: space-between; /* separación entre columnas */
+  align-items: center;
+}
+
+/* Columnas circulares */
+.circle-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  margin: 0 5px; /* separación lateral entre columnas */
+}

@@ -35,3 +35,88 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+
+ion-content {
+  --keyboard-offset: none !important;
+  --ion-background-color:#1473D2 !important;
+  --box-shadow: none;
+  --border-width: 0;
+}
+
+
+ion-grid {
+  --box-shadow: none;
+  --border-width: 0;
+}
+
+
+
+.items-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ion-title {
+  font-family: "Lemonada", cursive;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+ion-card-title {
+  font-family: "Lemonada", cursive;
+  font-size: 1.1rem;
+  color: black;
+  text-align: center;
+}
+
+@media (max-width: 400px) {
+  ion-title {
+    font-size: 1.2rem;
+  }
+}
+
+.centrar{
+  display:flex;
+  align-items: center;
+  justify-content: center
+}
+
+
+:root {
+  --ion-color-rojo-pastel: #E84E5F;
+  --ion-color-rojo-pastel-rgb: 232, 78, 95;
+  --ion-color-rojo-pastel-contrast: #ffffff;
+  --ion-color-rojo-pastel-contrast-rgb: 255, 255, 255;
+  --ion-color-rojo-pastel-shade: #cc4454;
+  --ion-color-rojo-pastel-tint: #ec6977;
+}
+
+:root {
+  --ion-color-srojo-pastel: #ec6977;
+  --ion-color-srojo-pastel-rgb: 236, 105, 119;
+  --ion-color-srojo-pastel-contrast: #ffffff;
+  --ion-color-srojo-pastel-contrast-rgb: 255, 255, 255;
+  --ion-color-srojo-pastel-shade: #d15c6a;
+  --ion-color-srojo-pastel-tint: #f08490;
+}
+
+.ion-color-rojo-pastel {
+  --ion-color-base: var(--ion-color-rojo-pastel);
+  --ion-color-base-rgb: var(--ion-color-rojo-pastel-rgb);
+  --ion-color-contrast: var(--ion-color-rojo-pastel-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-rojo-pastel-contrast-rgb);
+  --ion-color-shade: var(--ion-color-rojo-pastel-shade);
+  --ion-color-tint: var(--ion-color-rojo-pastel-tint);
+}
+
+.ion-color-srojo-pastel {
+  --ion-color-base: var(--ion-color-srojo-pastel);
+  --ion-color-base-rgb: var(--ion-color-srojo-pastel-rgb);
+  --ion-color-contrast: var(--ion-color-srojo-pastel-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-srojo-pastel-contrast-rgb);
+  --ion-color-shade: var(--ion-color-srojo-pastel-shade);
+  --ion-color-tint: var(--ion-color-srojo-pastel-tint);
+}
+
