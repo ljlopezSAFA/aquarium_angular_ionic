@@ -1,0 +1,75 @@
+.detalle-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+.imagen-card {
+  width: 90%;
+  margin: 1rem auto;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.imagen-acuario {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.edit-fab {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+}
+
+.info-card {
+  width: 90%;
+  margin: 1rem auto;
+  border-radius: 16px;
+  --background: #fffdfc;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.edit-icon {
+  color: var(--ion-color-rojo-pastel);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+ion-card-title {
+  color: var(--ion-color-rojo-pastel);
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+ion-input,
+ion-textarea {
+  --background: #fff;
+  --padding-start: 0.5rem;
+  --padding-end: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+}
+
+p{
+  color: black;
+}
+
+ion-item{
+  --background: white;
+}
+
+ion-button {
+  margin-top: 0.5rem;
+}

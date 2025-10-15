@@ -39,9 +39,52 @@
 
 ion-content {
   --keyboard-offset: none !important;
-  --ion-background-color:#1473D2 !important;
+  --ion-background-color: #1473D2 !important;
   --box-shadow: none;
   --border-width: 0;
+
+}
+
+ion-segment {
+  --background: white !important;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  overflow: hidden;
+  padding: 4px;
+}
+
+ion-segment-button[value="peces"] {
+  --indicator-color: #FFD93D;
+}
+
+ion-segment-button[value="invertebrados"] {
+  --indicator-color: #E84E5F;
+}
+
+ion-segment-button[value="plantas"] {
+  --indicator-color: #4ECDC4;
+}
+
+/* Material Design styles */
+ion-segment-button.md {
+  --color: #000;
+  --color-checked: #E84E5F;
+  --indicator-height: 4px;
+}
+
+/* iOS styles */
+ion-segment-button.ios {
+  --color: #000;
+  --color-checked: #fff;
+  --border-radius: 20px;
+}
+
+ion-segment-content {
+  height: 100%;
+  margin-top: 2px;
+  padding-right: 2px;
+  background: rgb(255, 255, 255, 0.95);
+
 }
 
 
@@ -50,9 +93,17 @@ ion-grid {
   --border-width: 0;
 }
 
+.background-grid {
+  --background: white !important;
+}
+
+.full-row {
+  --background: white !important;
+  width: 100%;
+}
 
 
-.items-center{
+.items-center {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,6 +113,12 @@ ion-title {
   font-family: "Lemonada", cursive;
   font-size: 1.5rem;
   text-align: center;
+}
+
+p {
+  font-family: "Lemonada", cursive;
+  font-size: 1rem;
+  color: whitesmoke;
 }
 
 ion-card-title {
@@ -77,11 +134,88 @@ ion-card-title {
   }
 }
 
-.centrar{
-  display:flex;
+ion-segment-content {
+  padding-right: 30px;
+}
+
+ion-segment-content ion-grid {
+  padding: 0;
+}
+
+ion-segment-content ion-row {
+  margin: -15px;
+  margin-top: -25px;
+  justify-content: flex-start;
+}
+
+ion-segment-content ion-col {
+  padding: 5px;
+}
+
+ng-template ion-content {
+  background: white !important;
+}
+
+ion-list ion-item {
+  background: white !important;
+}
+
+
+.centrar {
+  display: flex;
   align-items: center;
   justify-content: center
 }
+
+.derecha {
+  display: flex;
+  align-items: end;
+  justify-content: end;
+}
+
+.izquierda {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+
+ion-modal ion-content {
+  --ion-background-color: #ffffff !important;
+  background: #ffffff !important;
+}
+
+ion-modal {
+  --height: 50%;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+ion-modal::part(backdrop) {
+  background: rgba(209, 213, 219);
+  opacity: 1;
+}
+
+ion-modal ion-toolbar {
+  --background: #E84E5F;
+  --color: white;
+}
+
+ion-input[label] {
+  color: #E84E5F;
+}
+
+
+ion-textarea[label] {
+  color: #E84E5F;
+}
+
+ion-input::part(native)::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+
+
 
 
 :root {

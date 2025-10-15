@@ -1,5 +1,18 @@
 <ion-app>
-  <app-cabecera></app-cabecera>
-  <ion-router-outlet></ion-router-outlet>
-  <app-menu-inferior></app-menu-inferior>
+
+  <!-- Cabecera -->
+  <ion-header *ngIf="showHeaderFooter">
+    <app-cabecera></app-cabecera>
+  </ion-header>
+
+  <!-- Contenido principal con router outlet -->
+  <ion-content >
+    <ion-router-outlet [animated]="false"></ion-router-outlet>
+  </ion-content>
+
+  <!-- Footer / menú inferior -->
+  <ion-footer *ngIf="showHeaderFooter">
+    <app-menu-inferior></app-menu-inferior>
+  </ion-footer>
+
 </ion-app>

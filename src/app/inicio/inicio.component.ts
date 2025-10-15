@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {IonicModule} from "@ionic/angular";
-import {CabeceraComponent} from "../cabecera/cabecera.component";
-import {TarjetaComponent} from "../tarjeta/tarjeta.component";
-import {MenuInferiorComponent} from "../menu-inferior/menu-inferior.component";
+import {TarjetaComponent} from "../tarjeta-acuario/tarjeta.component";
+import {addIcons} from "ionicons";
+import {add, calendarOutline, cubeOutline, documentTextOutline, imageOutline, pencilOutline} from "ionicons/icons";
+import {Router, RouterModule} from "@angular/router";
 
 @Component({
   selector: 'app-inicio',
@@ -11,14 +12,14 @@ import {MenuInferiorComponent} from "../menu-inferior/menu-inferior.component";
   standalone: true,
   imports: [
     IonicModule,
-    CabeceraComponent,
-    TarjetaComponent,
-    MenuInferiorComponent
+    TarjetaComponent, RouterModule
   ]
 })
 export class InicioComponent  implements OnInit {
 
-  constructor() { }
+  constructor() {
+    addIcons({add, pencilOutline,cubeOutline, calendarOutline, documentTextOutline, imageOutline})
+  }
 
   ngOnInit() {}
 

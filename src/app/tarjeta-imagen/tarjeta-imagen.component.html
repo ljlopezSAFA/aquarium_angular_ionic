@@ -1,0 +1,14 @@
+<ion-card class="tarjeta" [class.flipped]="flipped" (click)="toggleFlip()">
+
+  <!-- Frente -->
+  <div class="card-front" [style.background-image]="bgImage">
+    <h2>{{ titulo }}</h2>
+  </div>
+
+  <!-- Reverso -->
+  <div class="card-back">
+    <p style="color: black; font-size: 0.85rem;">{{ texto }}</p>
+    <ion-button expand="block" color="rojo-pastel">Ver ficha</ion-button>
+  </div>
+
+</ion-card>

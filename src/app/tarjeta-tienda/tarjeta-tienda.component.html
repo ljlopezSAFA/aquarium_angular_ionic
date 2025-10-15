@@ -1,0 +1,22 @@
+<ion-card class="tarjeta-tienda" [style.background-image]="'url(https://st4.depositphotos.com/11523582/40426/v/950/depositphotos_404265074-stock-illustration-bubbles-line-seamless-pattern-soap.jpg)'">
+  <ion-item lines="none" class="tarjeta-flex">
+    <!-- Avatar -->
+    <ion-avatar>
+      <img [src]="logo" alt="Logo de {{nombre}}" />
+    </ion-avatar>
+
+    <!-- Texto -->
+    <ion-label>
+      <h2>{{ nombre }}</h2>
+      <p>
+        <ion-icon name="location-outline" style="margin-right: 4px;"></ion-icon>
+        {{ ubicacion }}
+      </p>
+    </ion-label>
+
+    <!-- Botón a la derecha -->
+    <ion-button fill="solid" size="medium" color="rojo-pastel">
+      <ion-icon name="cart-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-card>

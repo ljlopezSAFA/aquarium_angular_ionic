@@ -1,0 +1,71 @@
+.tarjeta-tienda {
+  position: relative;
+  border: 1.5pt solid #000;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin: 8px 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  --background: transparent !important;
+
+  /* Capa oscura semitransparente para mejorar legibilidad del texto */
+  .overlay {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.6);
+    z-index: 0;
+  }
+
+  /* Ion-item convertido en fila flex para 3 partes */
+  ion-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    --background: transparent !important;
+    --padding-start: 12px;
+    --inner-padding-end: 8px;
+    --min-height: 72px;
+    position: relative;
+    z-index: 1;
+  }
+
+  ion-avatar {
+    flex: 0 0 60px; /* ancho fijo igual que antes */
+    height: 60px;
+    border: 1.5pt solid #1473D2;
+  }
+
+  ion-label {
+    flex: 1; /* ocupa el espacio entre avatar y botón */
+    margin: 0 10px;
+
+    h2 {
+      font-family: "Lemonada", cursive;
+      font-size: 1.1rem;
+      color: #000;
+      margin-bottom: 4px;
+    }
+
+    p {
+      font-family: "Lemonada", cursive;
+      font-size: 0.9rem;
+      color: #333;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  /* Botón a la derecha, mismo tamaño que el avatar */
+  ion-button.boton-derecha {
+    flex: 0 0 60px;
+    height: 60px;
+    min-width: auto; /* evita que crezca demasiado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* opcional: botón redondo */
+  }
+}

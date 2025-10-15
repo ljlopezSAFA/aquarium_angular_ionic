@@ -1,8 +1,10 @@
 /* Footer transparente, sin sombra ni borde */
-.custom-footer {
-  --background: transparent;
-  --box-shadow: none;
-  --border-style: none;
+.custom-footer,
+.custom-footer::before,
+.custom-footer::after {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 
