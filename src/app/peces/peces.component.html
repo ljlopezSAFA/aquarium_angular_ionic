@@ -20,90 +20,42 @@
     <ion-segment-view>
       <ion-segment-content id="peces">
 
-        <!-- Fila 1 -->
-        <ion-row>
-          <ion-col size="6">
+
+        <ion-row *ngFor="let p of peces">
+          <ion-col size="12">
             <app-tarjeta-imagen
-              titulo="Pez Payaso"
-              imagen="https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/media/0d/temas/pez-payaso.jpg.webp"
-              texto="Este pez es tropical y colorido">
-            </app-tarjeta-imagen>
-          </ion-col>
-          <ion-col size="6">
-            <app-tarjeta-imagen
-              titulo="Pez Ángel"
-              imagen="https://upload.wikimedia.org/wikipedia/commons/8/85/Pterophyllum_altum.jpg"
-              texto="Vive en arrecifes de coral">
+              titulo="{{p.nombre}}"
+              imagen="{{p.foto}}"
+              texto="{{p.descripcion}}">
             </app-tarjeta-imagen>
           </ion-col>
         </ion-row>
 
-        <!-- Fila 2 -->
-        <ion-row>
-          <ion-col size="6">
-            <app-tarjeta-imagen
-              titulo="Betta"
-              imagen="https://acuarioland.com/wp-content/uploads/2020/04/pezbettamonstarofullmask.jpg"
-              texto="Famoso por sus colores brillantes y aletas largas">
-            </app-tarjeta-imagen>
-          </ion-col>
-          <ion-col size="6">
-            <app-tarjeta-imagen
-              titulo="Guppy"
-              imagen="https://www.nascapers.es/wp-content/uploads/2024/08/Guppy-Macho-Dumbo-Red-Dragon-Lebistes-reticulatus-pareja-nascapers-online.webp"
-              texto="Pequeño y muy colorido, fácil de cuidar">
-            </app-tarjeta-imagen>
-          </ion-col>
-        </ion-row>
 
-        <!-- Fila 3 -->
-        <ion-row>
-          <ion-col size="6">
-            <app-tarjeta-imagen
-              titulo="Tetra Neón"
-              imagen="https://www.nascapers.es/wp-content/uploads/2020/03/paracheirodon-axelrodi-2.jpg"
-              texto="Pequeño pez de cardumen, colores brillantes">
-            </app-tarjeta-imagen>
-          </ion-col>
-          <ion-col size="6">
-            <app-tarjeta-imagen
-              titulo="Molly"
-              imagen="https://media.masterfisch.com/151292-thickbox_default/molly-yellow.jpg"
-              texto="Viven en agua dulce, muy resistentes">
-            </app-tarjeta-imagen>
-          </ion-col>
-        </ion-row>
+        <!--        <ion-row>-->
+        <!--          <ion-col size="12">-->
+        <!--            <app-tarjeta-imagen-->
+        <!--              titulo="Pez Payaso"-->
+        <!--              imagen="https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/media/0d/temas/pez-payaso.jpg.webp"-->
+        <!--              texto="Este pez es tropical y colorido">-->
+        <!--            </app-tarjeta-imagen>-->
+        <!--          </ion-col>-->
+        <!--        </ion-row>-->
 
-        <!-- Fila 4 -->
-        <ion-row>
-          <ion-col size="6">
-            <app-tarjeta-imagen
-              titulo="Gourami"
-              imagen="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcxIJdoLzYs32jFdiWYAYSBEtr42cMGmGjGA&s"
-              texto="Pacífico y muy colorido">
-            </app-tarjeta-imagen>
-          </ion-col>
-          <ion-col size="6">
-            <app-tarjeta-imagen
-              titulo="Koi"
-              imagen="https://www.mispeces.com/img/carp-koi-alone.jpeg?__scale=w:1080,h:720"
-              texto="Famosos peces ornamentales, colores vibrantes">
-            </app-tarjeta-imagen>
-          </ion-col>
-        </ion-row>
+
       </ion-segment-content>
 
       <ion-segment-content id="invertebrados">
         <!-- Fila 1 -->
         <ion-row>
-          <ion-col  size="6">
+          <ion-col size="6">
             <app-tarjeta-imagen
               titulo="Camarón Amano"
               imagen="https://acuariosplantados.com.ar/wp-content/uploads/2022/02/amano_shrimp2-600x459.jpg"
               texto="Elimina algas y es muy activo en acuarios">
             </app-tarjeta-imagen>
           </ion-col>
-          <ion-col  size="6">
+          <ion-col size="6">
             <app-tarjeta-imagen
               titulo="Camarón Cherry"
               imagen="https://www.fishipedia.es/wp-content/uploads/2017/10/Neocaridina-davidi-Sakura-.jpg"
@@ -121,7 +73,7 @@
               texto="Come algas y restos de comida, cuidado con plantas delicadas">
             </app-tarjeta-imagen>
           </ion-col>
-          <ion-col  size="6">
+          <ion-col size="6">
             <app-tarjeta-imagen
               titulo="Cangrejo Vampire"
               imagen="https://www.solaqua.net/WebRoot/Store/Shops/3311-141118/5FCA/5D5E/271A/7F97/40CF/25E6/6498/0A75/CANGREJO_VAMPIRO_RED_GEOSESARMA_SP.jpg"

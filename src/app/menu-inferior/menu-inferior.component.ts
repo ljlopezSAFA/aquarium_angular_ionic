@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {IonicModule} from "@ionic/angular";
 import {addIcons} from "ionicons";
 import {cartOutline, fishOutline, homeOutline, logoIonic} from "ionicons/icons";
-import {RouterLink, RouterModule} from "@angular/router";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-menu-inferior',
