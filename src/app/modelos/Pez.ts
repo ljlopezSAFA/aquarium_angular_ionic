@@ -1,6 +1,6 @@
 
 
-export class Pez {
+export interface Pez {
   id?: number;
   nombre?:string;
   foto?:string;
