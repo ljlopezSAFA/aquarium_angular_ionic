@@ -1,0 +1,57 @@
+/* Borde redondeado general */
+.custom-card {
+  border-radius: 30px;
+  border: 2px solid black;
+  overflow: hidden; /* hace que la imagen y contenido se ajusten al borde */
+}
+
+/* Layout horizontal */
+.card-horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+/* Imagen izquierda */
+.card-image {
+  width: 120px;
+  height: auto;
+  object-fit: cover;
+}
+
+
+
+/* Contenido derecho */
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.icon-fish {
+  color: #FF6B6B;   /* rojo coral */
+  font-size: 28px;  /* opcional: tamaño */
+}
+
+.icon-water {
+  color: #FEBC2F;   /* amarillo */
+  font-size: 28px;
+}
+
+
+.icon-cube {
+  color: #1473D2;   /* amarillo */
+  font-size: 28px;
+}
+.icon-leaf {
+  color: #4ECDC4;   /* verde agua */
+  font-size: 28px;
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;   /* centra verticalmente */
+  gap: 6px;              /* espacio entre icono y texto */
+  font-size: 16px;       /* tamaño del texto */
+}
