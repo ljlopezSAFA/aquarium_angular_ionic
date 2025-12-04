@@ -149,16 +149,16 @@
           <ion-row>
             <ion-col size="10">
               <ion-searchbar
-                [(ngModel)]="query"
+                [(ngModel)]="queryPlanta"
                 (ionInput)="onSearch($event)"
                 placeholder="Buscar planta..."
                 show-clear-button="focus"
                 color="rojo-pastel"></ion-searchbar>
 
-              @if (filteredResults.length > 0 && query) {
+              @if (plantasFiltrada.length > 0 && queryPlanta) {
 
                 <ion-list style="border:  1pt solid #cc4454" lines="none">
-                  @for (item of filteredResults; track $index) {
+                  @for (item of plantasFiltrada; track $index) {
                     <ion-item button (click)="selectItem(item)">
                       <ion-label>{{ item.nombre }}</ion-label>
                     </ion-item>
@@ -168,7 +168,7 @@
               }
             </ion-col>
             <ion-col size="2">
-              <ion-button color="rojo-pastel">+</ion-button>
+              <ion-button color="rojo-pastel" (click)="vincularPlanta(plantaSeleccionada)">+</ion-button>
             </ion-col>
           </ion-row>
 
@@ -178,11 +178,10 @@
               <ion-item>
                 <ion-icon name="leaf-outline" slot="start"></ion-icon>
                 <ion-label>{{ p.nombre }}</ion-label>
-                <ion-button (click)="quitarPlanta(p.id)" color="rojo-pastel">x</ion-button>
+                <ion-button (click)="desvincularPlanta(p.id)" color="rojo-pastel">x</ion-button>
               </ion-item>
             }
           </ion-list>
-
 
         </ion-card-content>
 

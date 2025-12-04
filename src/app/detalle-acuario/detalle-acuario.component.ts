@@ -15,6 +15,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AcuarioService} from "../servicios/acuario-service";
 import {AcuarioDetalle} from "../modelos/AcuarioDetalle";
 import {ActivatedRoute} from "@angular/router";
+import {PlantaService} from "../servicios/planta-service";
+import {Planta} from "../modelos/Planta";
+import {AsociarPlanta} from "../modelos/AsociarPlanta";
 
 type SeccionEditable = 'descripcion' | 'datos' | 'imagen' | 'fauna' | 'flora';
 
@@ -32,6 +35,7 @@ export class DetalleAcuarioComponent implements OnInit {
   service : AcuarioService = inject(AcuarioService);
   acuario!: AcuarioDetalle;
   route: ActivatedRoute = inject(ActivatedRoute);
+  plantaService: PlantaService = inject(PlantaService);
 
   // Flags de edición inline
   editFlags: Record<SeccionEditable, boolean> = {
@@ -42,15 +46,10 @@ export class DetalleAcuarioComponent implements OnInit {
     flora: false,
   };
 
-  query = '';
-  resultados = [
-    { nombre: 'Criptocoryne' },
-    { nombre: 'Musgo' },
-    { nombre: 'Anubia' },
-    { nombre: 'Bucefalandra' },
-    { nombre: 'Hygrófila' }
-  ];
-  filteredResults: any[] = [];
+  queryPlanta = '';
+  plantaSeleccionada!: number;
+  plantas: Planta[] = [];
+  plantasFiltrada: any[] = [];
 
 
 
@@ -79,6 +78,10 @@ export class DetalleAcuarioComponent implements OnInit {
   // Activa la edición inline según la sección
   editar(seccion: SeccionEditable) {
     this.editFlags[seccion] = true;
+
+    if(seccion == 'flora'){
+      this.cargarPlantas();
+    }
   }
 
   // Guardar cambios (solo desactiva edición por ahora)
@@ -93,23 +96,46 @@ export class DetalleAcuarioComponent implements OnInit {
     console.log('Cancelado:', seccion);
   }
 
-  quitarPlanta(id:number){
+
+  vincularPlanta(id:number){
+    const asociarPlanta = {} as AsociarPlanta;
+    asociarPlanta.idPlanta = id;
+    asociarPlanta.idAcuario = this.id;
+
+    this.service.vincularPlanta(asociarPlanta).subscribe({
+      next: data => {},
+      error: error => console.log(error),
+      complete :()=>{
+        this.cargarDatosAcuario();
+      }
+    })
+  }
+
+  desvincularPlanta(id:number){
 
   }
 
   onSearch(event: any) {
     const value = event.target.value?.toLowerCase() || '';
-    this.filteredResults = value
-      ? this.resultados.filter(r =>
+    this.plantasFiltrada = value
+      ? this.plantas.filter(r =>
         r.nombre.toLowerCase().includes(value)
       )
       : [];
   }
 
   selectItem(item: any) {
-    console.log('Seleccionado:', item);
-    this.query = item.nombre;
-    this.filteredResults = []; // cerrar resultados
+    this.queryPlanta = item.nombre;
+    this.plantasFiltrada = []; // cerrar resultados
+  }
+
+
+  cargarPlantas(){
+    this.plantaService.consultarPlantas().subscribe({
+      next: data => this.plantas = data,
+      error: error => console.log(error),
+    })
+
   }
 
 }
