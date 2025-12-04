@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Acuario} from "../modelos/Acuario";
 import {AcuarioCrear} from "../modelos/AcuarioCrear";
+import {AcuarioDetalle} from "../modelos/AcuarioDetalle";
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,10 @@ export class AcuarioService {
 
   crearAcuario(acuario:AcuarioCrear):Observable<any> {
     return this.clienteHttp.post("/api/acuario/crear", acuario);
+  }
+
+  detalleAcuario(id:number):Observable<AcuarioDetalle> {
+    return this.clienteHttp.get<AcuarioDetalle>("/api/acuario/detalle/"+ id);
   }
 
 

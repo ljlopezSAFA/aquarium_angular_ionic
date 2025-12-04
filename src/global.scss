@@ -45,6 +45,10 @@ ion-content {
 
 }
 
+ion-content::part(scroll) {
+  padding: var(--ion-safe-area-top, 0) var(--ion-safe-area-right, 0) var(--ion-safe-area-bottom, 0) var(--ion-safe-area-left, 0);
+}
+
 ion-segment {
   --background: white !important;
   border-top-left-radius: 20px;
@@ -213,7 +217,6 @@ ion-input::part(native)::-webkit-calendar-picker-indicator {
   display: none;
   -webkit-appearance: none;
 }
-
 
 
 

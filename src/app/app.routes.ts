@@ -11,5 +11,5 @@ export const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'peces', component: PecesComponent},
   {path: 'tiendas', component: TiendasComponent},
-  {path: 'detalle-acuario', component: DetalleAcuarioComponent},
+  {path: 'detalle-acuario/:id', component: DetalleAcuarioComponent},
 ];

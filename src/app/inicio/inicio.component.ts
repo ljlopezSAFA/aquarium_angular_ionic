@@ -1,18 +1,22 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {IonicModule} from "@ionic/angular";
-import {TarjetaComponent} from "../tarjeta-acuario/tarjeta.component";
 import {addIcons} from "ionicons";
 import {
-  add, arrowRedoOutline,
-  calendarOutline, createOutline,
+  add,
+  arrowRedoOutline,
+  calendarOutline,
+  createOutline,
   cubeOutline,
-  documentTextOutline, eyeOutline, fishOutline,
-  imageOutline, leafOutline,
+  documentTextOutline,
+  eyeOutline,
+  fishOutline,
+  leafOutline,
   pencilOutline,
-  trashOutline, waterOutline
+  trashOutline,
+  waterOutline
 } from "ionicons/icons";
-import {Router, RouterModule} from "@angular/router";
-import { AcuarioService } from '../servicios/acuario-service';
+import {RouterModule} from "@angular/router";
+import {AcuarioService} from '../servicios/acuario-service';
 import {Acuario} from "../modelos/Acuario";
 import {AcuarioCrear} from "../modelos/AcuarioCrear";
 import {FormsModule} from "@angular/forms";
@@ -24,7 +28,7 @@ import {FormsModule} from "@angular/forms";
   standalone: true,
   imports: [
     IonicModule,
-    TarjetaComponent, RouterModule, FormsModule
+    RouterModule, FormsModule
   ]
 })
 export class InicioComponent  implements OnInit {
@@ -38,7 +42,6 @@ export class InicioComponent  implements OnInit {
     idUsuario: 1,
     tipo: ""
   } ;
-
 
 
 

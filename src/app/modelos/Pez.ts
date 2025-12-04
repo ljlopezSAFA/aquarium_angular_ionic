@@ -2,7 +2,7 @@
 
 export interface Pez {
   id?: number;
-  nombre?:string;
+  nombreComun?:string;
   foto?:string;
   descripcion?:string;
 }

@@ -1,28 +1,30 @@
-<ion-content [fullscreen]="true" color="rojo-pastel">
-  <ion-header collapse="fade">
-    <ion-toolbar color="rojo-pastel">
-      <ion-title>{{ acuario.nombre }}</ion-title>
-      <ion-buttons slot="start">
-        <ion-back-button defaultHref="/inicio"></ion-back-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
+@if (acuario) {
+  <ion-content>
 
-  <ion-content class="detalle-content">
+
+    <ion-header collapse="fade">
+      <ion-toolbar color="rojo-pastel">
+        <ion-title>{{ acuario.nombre }}</ion-title>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/inicio"></ion-back-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
 
     <!-- Imagen -->
     <ion-card class="imagen-card">
       <ng-container *ngIf="!editFlags.imagen; else editImagenTpl">
-        <img [src]="acuario.imagen" [alt]="acuario.nombre" class="imagen-acuario" />
+        <img [src]="acuario.foto" [alt]="acuario.nombre" class="imagen-acuario"/>
       </ng-container>
 
       <ng-template #editImagenTpl>
         <ion-item>
           <ion-label position="stacked">URL de la Imagen</ion-label>
-          <ion-input [(ngModel)]="acuario.imagen"></ion-input>
+          <ion-input [(ngModel)]="acuario.foto"></ion-input>
         </ion-item>
         <ion-button expand="block" color="rojo-pastel" (click)="guardar('imagen')">Guardar</ion-button>
-        <ion-button expand="block" color="light"  (click)="cancelar('imagen')">Cancelar</ion-button>
+        <ion-button expand="block" color="light" (click)="cancelar('imagen')">Cancelar</ion-button>
       </ng-template>
 
       <ion-fab vertical="top" horizontal="end" class="edit-fab">
@@ -49,7 +51,8 @@
         <ng-template #editDescripcionTpl>
           <ion-textarea [(ngModel)]="acuario.descripcion" auto-grow="true"></ion-textarea>
           <ion-button expand="block" color="rojo-pastel" (click)="guardar('descripcion')">Guardar</ion-button>
-          <ion-button expand="block" color="medium" fill="outline" (click)="cancelar('descripcion')">Cancelar</ion-button>
+          <ion-button expand="block" color="medium" fill="outline" (click)="cancelar('descripcion')">Cancelar
+          </ion-button>
         </ng-template>
       </ion-card-content>
     </ion-card>
@@ -64,60 +67,51 @@
       </ion-card-header>
 
       <ion-card-content>
-        <ng-container *ngIf="!editFlags.datos; else editDatosTpl">
+        @if (!editFlags.datos) {
           <ion-list lines="none">
             <ion-item>
               <ion-icon name="water-outline" slot="start"></ion-icon>
               <ion-label>Capacidad</ion-label>
-              <ion-note slot="end">{{ acuario.datos.capacidad }}</ion-note>
+              <ion-note slot="end">{{ acuario.capacidad }}</ion-note>
             </ion-item>
             <ion-item>
               <ion-icon name="cube-outline" slot="start"></ion-icon>
               <ion-label>Medidas</ion-label>
-              <ion-note slot="end">{{ acuario.datos.medidas }}</ion-note>
-            </ion-item>
-            <ion-item>
-              <ion-icon name="calendar-outline" slot="start"></ion-icon>
-              <ion-label>Fecha de Montaje</ion-label>
-              <ion-note slot="end">{{ acuario.datos.fechaMontaje | date }}</ion-note>
+              <ion-note slot="end">{{ acuario.medidas }}</ion-note>
             </ion-item>
           </ion-list>
-        </ng-container>
-
-        <ng-template #editDatosTpl>
+        } @else {
           <ion-item>
-            <ion-label position="stacked">Capacidad</ion-label>
-            <ion-input [(ngModel)]="acuario.datos.capacidad"></ion-input>
+            <ion-label color="rojo-pastel">Capacidad</ion-label>
+            <ion-input [(ngModel)]="acuario.capacidad"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label position="stacked">Medidas</ion-label>
-            <ion-input [(ngModel)]="acuario.datos.medidas"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="stacked">Fecha Montaje</ion-label>
-            <ion-input type="date" [(ngModel)]="acuario.datos.fechaMontaje"></ion-input>
+            <ion-label color="rojo-pastel">Medidas</ion-label>
+            <ion-input [(ngModel)]="acuario.medidas"></ion-input>
           </ion-item>
           <ion-button expand="block" color="rojo-pastel" (click)="guardar('datos')">Guardar</ion-button>
           <ion-button expand="block" color="medium" fill="outline" (click)="cancelar('datos')">Cancelar</ion-button>
-        </ng-template>
+        }
       </ion-card-content>
     </ion-card>
 
     <!-- Fauna -->
     <ion-card class="info-card">
-      <ion-card-header>
+      <ion-card-header style="background: white">
         <div class="card-header-row">
           <ion-card-title>Fauna</ion-card-title>
-          <ion-icon name="pencil-outline" class="edit-icon" (click)="editarLista('fauna')"></ion-icon>
+          <ion-icon name="pencil-outline" class="edit-icon" (click)="editar('fauna')"></ion-icon>
         </div>
       </ion-card-header>
 
       <ion-card-content>
         <ion-list lines="none">
-          <ion-item *ngFor="let pez of acuario.fauna">
-            <ion-icon name="fish-outline" slot="start"></ion-icon>
-            <ion-label>{{ pez }}</ion-label>
-          </ion-item>
+          @for (pez of acuario.peces; track pez.id) {
+            <ion-item>
+              <ion-icon name="fish-outline" slot="start"></ion-icon>
+              <ion-label>{{ pez.pez.nombreComun }}</ion-label>
+            </ion-item>
+          }
         </ion-list>
       </ion-card-content>
     </ion-card>
@@ -127,19 +121,75 @@
       <ion-card-header>
         <div class="card-header-row">
           <ion-card-title>Flora</ion-card-title>
-          <ion-icon name="pencil-outline" class="edit-icon" (click)="editarLista('flora')"></ion-icon>
+
+          @if (!editFlags.flora) {
+            <ion-icon name="pencil-outline" class="edit-icon" (click)="editar('flora')"></ion-icon>
+          } @else {
+            <ion-icon name="close-outline" class="edit-icon" (click)="cancelar('flora')"></ion-icon>
+          }
         </div>
       </ion-card-header>
 
-      <ion-card-content>
-        <ion-list lines="none">
-          <ion-item *ngFor="let planta of acuario.flora">
-            <ion-icon name="leaf-outline" slot="start"></ion-icon>
-            <ion-label>{{ planta }}</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
+      @if (!editFlags.flora) {
+        <ion-card-content>
+          <ion-list lines="none">
+            @for (p of acuario.plantas; track p.id) {
+              <ion-item>
+                <ion-icon name="leaf-outline" slot="start"></ion-icon>
+                <ion-label>{{ p.nombre }}</ion-label>
+              </ion-item>
+            }
+          </ion-list>
+        </ion-card-content>
+      } @else {
+
+
+        <ion-card-content>
+
+          <ion-row>
+            <ion-col size="10">
+              <ion-searchbar
+                [(ngModel)]="query"
+                (ionInput)="onSearch($event)"
+                placeholder="Buscar planta..."
+                show-clear-button="focus"
+                color="rojo-pastel"></ion-searchbar>
+
+              @if (filteredResults.length > 0 && query) {
+
+                <ion-list style="border:  1pt solid #cc4454" lines="none">
+                  @for (item of filteredResults; track $index) {
+                    <ion-item button (click)="selectItem(item)">
+                      <ion-label>{{ item.nombre }}</ion-label>
+                    </ion-item>
+                  }
+                </ion-list>
+
+              }
+            </ion-col>
+            <ion-col size="2">
+              <ion-button color="rojo-pastel">+</ion-button>
+            </ion-col>
+          </ion-row>
+
+
+          <ion-list lines="none">
+            @for (p of acuario.plantas; track p.id) {
+              <ion-item>
+                <ion-icon name="leaf-outline" slot="start"></ion-icon>
+                <ion-label>{{ p.nombre }}</ion-label>
+                <ion-button (click)="quitarPlanta(p.id)" color="rojo-pastel">x</ion-button>
+              </ion-item>
+            }
+          </ion-list>
+
+
+        </ion-card-content>
+
+      }
+
+
     </ion-card>
 
   </ion-content>
-</ion-content>
+}

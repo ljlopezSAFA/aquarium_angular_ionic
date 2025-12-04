@@ -46,8 +46,8 @@
                   </ion-row>
                   <ion-row>
                     <ion-col>
-                      <ion-button routerLink="/detalle-acuario" size="small" color="rojo-pastel">
-                        <ion-icon (click)="eliminar(acuario.id)"  name="eye-outline"></ion-icon>
+                      <ion-button [routerLink]="['/detalle-acuario', acuario.id]" size="small" color="rojo-pastel">
+                        <ion-icon name="eye-outline"></ion-icon>
                       </ion-button>
                     </ion-col>
                     <ion-col>
@@ -78,10 +78,8 @@
 
 
 
-
-
     <ion-row>
-      <ion-col class="derecha">
+      <ion-col class="centrar">
         <ion-button id="open-modal" expand="block" size="medium" color="rojo-pastel">
           <ion-icon slot="end" name="add"></ion-icon>
           Nuevo Acuario
