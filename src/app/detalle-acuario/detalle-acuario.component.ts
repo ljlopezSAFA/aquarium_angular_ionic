@@ -126,6 +126,7 @@ export class DetalleAcuarioComponent implements OnInit {
 
   selectItem(item: any) {
     this.queryPlanta = item.nombre;
+    this.plantaSeleccionada = item.id;
     this.plantasFiltrada = []; // cerrar resultados
   }
 

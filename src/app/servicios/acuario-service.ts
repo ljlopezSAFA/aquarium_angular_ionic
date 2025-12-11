@@ -51,6 +51,7 @@ export class AcuarioService {
 
 
   vincularPlanta(asociacion: AsociarPlanta){
+    console.log(asociacion);
     return this.clienteHttp.put("/api/acuario/planta/vincular",asociacion);
   }
 
